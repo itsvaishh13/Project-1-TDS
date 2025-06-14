@@ -1,0 +1,16 @@
+providers:
+  - provider: custom
+    config:
+      url: "https://a853-2409-40d0-310a-a9f4-2dcb-6bcc-4d66-2cc.ngrok-free.app"
+
+tests:
+  - name: Q1
+    prompt: "Explain the difference between classification and regression."
+  - name: Q2
+    prompt: "What is overfitting in machine learning?"
+  - name: Q3
+    prompt: "Give an example of a supervised learning algorithm."
+  - name: Q4
+    prompt: "Define precision and recall."
+  - name: Q5
+    prompt: "What is gradient descent used for?"
