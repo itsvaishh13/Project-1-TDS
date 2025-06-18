@@ -4,6 +4,18 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+import tempfile
+
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
+
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 # Setup headless Chrome
 options = Options()
