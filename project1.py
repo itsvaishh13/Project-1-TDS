@@ -1,5 +1,6 @@
 # ----------------------------- SECTION A: COURSE SCRAPING -----------------------------
 
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -67,10 +68,16 @@ print("🟢 Using pre-saved topics.json instead of fetching again.")
 # ----------------------------- SECTION C: FASTAPI SERVER -----------------------------
 
 from fastapi import FastAPI
+app = FastAPI()
+@app.get("/")
+def home():
+    return {"message": "Virtual TA is running successfully!"}
+
 from pydantic import BaseModel
 from typing import Optional, List
 import base64
 import json
+
 
 # Load pre-scraped data (Discourse topics)
 with open("topics.json", "r", encoding="utf-8") as f:
@@ -149,7 +156,10 @@ async def handle_question(req: QuestionRequest):
         "links": links
     }
 
-import uvicorn
+# ----------------------------- SECTION D: RUNNING THE SERVER -----------------------------
+
 
 if __name__ == "__main__":
+    import uvicorn
     uvicorn.run("project1:app", host="0.0.0.0", port=3000, reload=False)
+
